@@ -317,7 +317,7 @@ class XGrid(BaseGrid):
         ds = self._ds
 
         if "Z" in self.axes:
-            zi, zeta = _search_1d_array(ds.depth.values, z)
+            zi, zeta = _search_1d_array(ds.depth.values.reshape(-1), z)
         else:
             zi, zeta = np.zeros(z.shape, dtype=int), np.zeros(z.shape, dtype=float)
 
